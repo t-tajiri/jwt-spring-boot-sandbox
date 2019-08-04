@@ -32,10 +32,10 @@ ext {
 
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web"
-	compileOnly "org.springframework.security.oauth:spring-security-oauth2:$springOauth2Version"
-	compileOnly "javax.xml.bind:jaxb-api:$jaxbApiVersion"
-	compileOnly "com.sun.xml.bind:jaxb-core:$jaxbCoreVersion"
-	compileOnly "com.sun.xml.bind:jaxb-impl:$jaxbImplVersion"
+	implementation "org.springframework.security.oauth:spring-security-oauth2:$springOauth2Version"
+	implementation "javax.xml.bind:jaxb-api:$jaxbApiVersion"
+	implementation "com.sun.xml.bind:jaxb-core:$jaxbCoreVersion"
+	implementation "com.sun.xml.bind:jaxb-impl:$jaxbImplVersion"
 	developmentOnly "org.springframework.boot:spring-boot-devtools"
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
