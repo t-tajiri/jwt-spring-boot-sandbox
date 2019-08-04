@@ -1,0 +1,42 @@
+plugins {
+	id "org.springframework.boot" version "2.1.6.RELEASE"
+	id "java"
+}
+
+apply plugin: "io.spring.dependency-management"
+
+group = "tajiri.example"
+version = "0.0.1-SNAPSHOT"
+sourceCompatibility = "11"
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	springOauth2Version = "2.3.6.RELEASE"
+	jaxbApiVersion      = "2.3.1"
+	jaxbCoreVersion     = "2.3.0.1"
+	jaxbImplVersion     = "2.3.2"
+}
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	compileOnly "org.springframework.security.oauth:spring-security-oauth2:$springOauth2Version"
+	compileOnly "javax.xml.bind:jaxb-api:$jaxbApiVersion"
+	compileOnly "com.sun.xml.bind:jaxb-core:$jaxbCoreVersion"
+	compileOnly "com.sun.xml.bind:jaxb-impl:$jaxbImplVersion"
+	developmentOnly "org.springframework.boot:spring-boot-devtools"
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
