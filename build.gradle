@@ -36,6 +36,9 @@ dependencies {
 	implementation "javax.xml.bind:jaxb-api:$jaxbApiVersion"
 	implementation "com.sun.xml.bind:jaxb-core:$jaxbCoreVersion"
 	implementation "com.sun.xml.bind:jaxb-impl:$jaxbImplVersion"
+	implementation "com.auth0:java-jwt:3.8.1"
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly "org.springframework.boot:spring-boot-devtools"
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
