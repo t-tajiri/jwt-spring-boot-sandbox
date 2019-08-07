@@ -1,3 +1,6 @@
 server:
   port: 8090
 redirectUri: "http://localhost:8080"
+TOKEN:
+  SECRET_KEY: t-tajiri
+  EXPIRATION_TIME: 1_800_000 # 30 min
