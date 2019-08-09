@@ -17,11 +17,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
     private Environment env;
 
-    public void setUserDetailsService(UserDetailsService userDetailsService) {
+    public WebSecurity(UserDetailsService userDetailsService, Environment env) {
         this.userDetailsService = userDetailsService;
-    }
-
-    public void setEnv(Environment env) {
         this.env = env;
     }
 
@@ -30,13 +27,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http
             .cors()
-            .and().csrf().disable()
+        .and()
+            .csrf().disable()
             .authorizeRequests()
             .antMatchers(HttpMethod.POST, "/signup").permitAll()
             .anyRequest().authenticated()
-            .and()
+        .and()
             .addFilter(new JWTAuthenticationFilter(authenticationManager(), env))
-            .addFilter(new JWTAuthorizationFilter(userDetailsService, env))
+            .addFilterBefore(new JWTAuthorizationFilter(userDetailsService, env), JWTAuthenticationFilter.class)
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         // @formatter:on
     }

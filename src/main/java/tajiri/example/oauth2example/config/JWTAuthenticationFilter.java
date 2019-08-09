@@ -25,7 +25,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     private AuthenticationManager authenticationManager;
     private Environment env;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, Environment env) {
+    JWTAuthenticationFilter(AuthenticationManager authenticationManager, Environment env) {
         this.authenticationManager = authenticationManager;
         this.env = env;
     }
@@ -52,7 +52,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public void successfulAuthentication(HttpServletRequest request,
                                          HttpServletResponse response,
                                          FilterChain chain,
-                                         Authentication auth) throws IOException, ServletException {
+                                         Authentication auth) {
 
         var SECRET_KEY = env.getProperty("TOKEN.SECRET_KEY", DEFAULT_TOKEN_KEY);
 

@@ -21,7 +21,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
     private Environment env;
 
-    public JWTAuthorizationFilter(UserDetailsService userDetailsService, Environment env) {
+    JWTAuthorizationFilter(UserDetailsService userDetailsService, Environment env) {
         this.userDetailsService = userDetailsService;
         this.env = env;
     }
