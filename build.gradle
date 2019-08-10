@@ -33,10 +33,12 @@ ext {
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web"
 	implementation "org.springframework.security.oauth:spring-security-oauth2:$springOauth2Version"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
 	implementation "javax.xml.bind:jaxb-api:$jaxbApiVersion"
 	implementation "com.sun.xml.bind:jaxb-core:$jaxbCoreVersion"
 	implementation "com.sun.xml.bind:jaxb-impl:$jaxbImplVersion"
 	implementation "com.auth0:java-jwt:3.8.1"
+	runtimeOnly 'mysql:mysql-connector-java'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly "org.springframework.boot:spring-boot-devtools"
