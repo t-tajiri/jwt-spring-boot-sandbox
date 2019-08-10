@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.*;
 import org.springframework.core.env.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.*;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.security.web.authentication.*;
 import tajiri.example.oauth2example.model.*;
 
@@ -54,18 +55,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                          FilterChain chain,
                                          Authentication auth) {
 
-        var SECRET_KEY = env.getProperty("TOKEN.SECRET_KEY", DEFAULT_TOKEN_KEY);
+        var secretKey = env.getProperty("TOKEN.SECRET_KEY", DEFAULT_TOKEN_KEY);
 
-        var EXPIRATION_TIME = Long.parseLong(env.getProperty("TOKEN.EXPIRATION_TIME", DEFAULT_TOKEN_EXPIRATION_DATE));
+        var expirationTime = Long.parseLong(env.getProperty("TOKEN.EXPIRATION_TIME", DEFAULT_TOKEN_EXPIRATION_DATE));
 
         //TODO extract token manipulation
         // @formatter:off
         var token = JWT.create()
-                        .withSubject(((LoginUser) auth.getPrincipal()).getUsername())
-                        .withExpiresAt(Date.from(Instant.now().plusMillis(EXPIRATION_TIME)))
-                        .sign(HMAC512(SECRET_KEY.getBytes()));
+                        .withSubject(((User) auth.getPrincipal()).getUsername())
+                        .withExpiresAt(Date.from(Instant.now().plusMillis(expirationTime)))
+                        .sign(HMAC512(secretKey.getBytes()));
         // @formatter:on
 
         response.addHeader(HEADER_AUTHORIZATION, TOKEN_PREFIX + token);
     }
+
 }
