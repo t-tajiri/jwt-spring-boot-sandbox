@@ -10,6 +10,7 @@ import org.springframework.web.filter.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.*;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static tajiri.example.oauth2example.model.Constants.DEFAULT_TOKEN_KEY;
@@ -37,12 +38,11 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
         var token = header.replace(TOKEN_PREFIX, "");
         var username = getUsernameFromToken(token);
-
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() != null) {
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             var userDetails = userDetailsService.loadUserByUsername(username);
 
             if (validateToken(username, userDetails)) {
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword());
+                var authenticationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(), new ArrayList<>());
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
@@ -65,4 +65,5 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private boolean validateToken(String username, UserDetails userDetails) {
         return userDetails.getUsername().equals(username);
     }
+
 }
