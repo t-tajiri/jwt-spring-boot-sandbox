@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.config.http.*;
 import org.springframework.security.core.userdetails.*;
-import org.springframework.security.crypto.scrypt.*;
+import org.springframework.security.crypto.bcrypt.*;
 
 @Configuration
 @EnableWebSecurity
@@ -45,7 +45,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public SCryptPasswordEncoder encoder() {
-        return new SCryptPasswordEncoder();
+    public BCryptPasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
+
 }
