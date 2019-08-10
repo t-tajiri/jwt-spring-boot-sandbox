@@ -1,13 +1,13 @@
-package tajiri.example.oauth2example;
+package tajiri.example.jwt.auth;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 
 @SpringBootApplication
-public class Oauth2ExampleApplication {
+public class JwtAuthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Oauth2ExampleApplication.class, args);
+		SpringApplication.run(JwtAuthApplication.class, args);
 	}
 
 }

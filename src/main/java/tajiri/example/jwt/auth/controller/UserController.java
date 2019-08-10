@@ -1,11 +1,11 @@
-package tajiri.example.oauth2example.controller;
+package tajiri.example.jwt.auth.controller;
 
 import org.springframework.http.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.*;
-import tajiri.example.oauth2example.model.*;
-import tajiri.example.oauth2example.service.*;
+import tajiri.example.jwt.auth.model.*;
+import tajiri.example.jwt.auth.service.*;
 
 @RestController
 public class UserController {

@@ -1,9 +1,9 @@
-package tajiri.example.oauth2example.service.impl;
+package tajiri.example.jwt.auth.service.impl;
 
 import org.springframework.stereotype.*;
-import tajiri.example.oauth2example.model.*;
-import tajiri.example.oauth2example.repository.*;
-import tajiri.example.oauth2example.service.*;
+import tajiri.example.jwt.auth.model.*;
+import tajiri.example.jwt.auth.repository.*;
+import tajiri.example.jwt.auth.service.*;
 
 @Service
 public class UserServiceImpl implements UserService {

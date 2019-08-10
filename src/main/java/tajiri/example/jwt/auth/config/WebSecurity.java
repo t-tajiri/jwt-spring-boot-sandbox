@@ -1,4 +1,4 @@
-package tajiri.example.oauth2example.config;
+package tajiri.example.jwt.auth.config;
 
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.*;

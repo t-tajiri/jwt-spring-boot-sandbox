@@ -1,4 +1,4 @@
-package tajiri.example.oauth2example.config;
+package tajiri.example.jwt.auth.config;
 
 import com.auth0.jwt.*;
 import org.springframework.core.env.*;
@@ -6,6 +6,7 @@ import org.springframework.security.authentication.*;
 import org.springframework.security.core.context.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.web.filter.*;
+import tajiri.example.jwt.auth.model.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,9 +14,8 @@ import java.io.*;
 import java.util.*;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
-import static tajiri.example.oauth2example.model.Constants.DEFAULT_TOKEN_KEY;
-import static tajiri.example.oauth2example.model.Constants.HEADER_AUTHORIZATION;
-import static tajiri.example.oauth2example.model.Constants.TOKEN_PREFIX;
+import static tajiri.example.jwt.auth.model.Constants.HEADER_AUTHORIZATION;
+import static tajiri.example.jwt.auth.model.Constants.TOKEN_PREFIX;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
@@ -53,7 +53,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     //TODO extract token manipulation
     private String getUsernameFromToken(String token) {
         // @formatter:off
-        return JWT.require(HMAC512(env.getProperty("TOKEN.SECRET_KEY", DEFAULT_TOKEN_KEY)))
+        return JWT.require(HMAC512(env.getProperty("TOKEN.SECRET_KEY", Constants.DEFAULT_TOKEN_KEY)))
                     .build()
                     .verify(token)
                     .getSubject();

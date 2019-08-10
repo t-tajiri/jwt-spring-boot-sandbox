@@ -1,8 +1,8 @@
-package tajiri.example.oauth2example.service.impl;
+package tajiri.example.jwt.auth.service.impl;
 
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.*;
-import tajiri.example.oauth2example.repository.*;
+import tajiri.example.jwt.auth.repository.*;
 
 import java.util.*;
 

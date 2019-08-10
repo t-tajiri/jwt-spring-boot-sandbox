@@ -1,4 +1,4 @@
-package tajiri.example.oauth2example.config;
+package tajiri.example.jwt.auth.config;
 
 import com.auth0.jwt.*;
 import com.fasterxml.jackson.databind.*;
@@ -7,7 +7,7 @@ import org.springframework.security.authentication.*;
 import org.springframework.security.core.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.web.authentication.*;
-import tajiri.example.oauth2example.model.*;
+import tajiri.example.jwt.auth.model.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,10 +16,10 @@ import java.sql.*;
 import java.time.*;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
-import static tajiri.example.oauth2example.model.Constants.DEFAULT_TOKEN_EXPIRATION_DATE;
-import static tajiri.example.oauth2example.model.Constants.DEFAULT_TOKEN_KEY;
-import static tajiri.example.oauth2example.model.Constants.HEADER_AUTHORIZATION;
-import static tajiri.example.oauth2example.model.Constants.TOKEN_PREFIX;
+import static tajiri.example.jwt.auth.model.Constants.DEFAULT_TOKEN_EXPIRATION_DATE;
+import static tajiri.example.jwt.auth.model.Constants.DEFAULT_TOKEN_KEY;
+import static tajiri.example.jwt.auth.model.Constants.HEADER_AUTHORIZATION;
+import static tajiri.example.jwt.auth.model.Constants.TOKEN_PREFIX;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 

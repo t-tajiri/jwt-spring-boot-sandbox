@@ -1,4 +1,4 @@
-package tajiri.example.oauth2example.model;
+package tajiri.example.jwt.auth.model;
 
 import lombok.*;
 

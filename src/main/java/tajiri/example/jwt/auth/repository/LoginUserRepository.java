@@ -1,7 +1,7 @@
-package tajiri.example.oauth2example.repository;
+package tajiri.example.jwt.auth.repository;
 
 import org.springframework.data.repository.*;
-import tajiri.example.oauth2example.model.*;
+import tajiri.example.jwt.auth.model.*;
 
 public interface LoginUserRepository extends CrudRepository<LoginUser, String> {
 }
