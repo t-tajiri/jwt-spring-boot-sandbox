@@ -10,4 +10,5 @@ public class ExampleController {
     public String getExampleMessage() {
         return "oauth2 example!";
     }
+
 }
